@@ -1,0 +1,86 @@
+Nombre del proyecto:
+Wonder Beauty Shop 
+
+Descripción:
+Wonder Beauty Shop es una tienda virtual enfocada en la venta de productos de belleza y cuidado personal. El proyecto busca ofrecer a los usuarios una plataforma web sencilla, atractiva y fácil de utilizar, donde puedan consultar productos, conocer sus características, precios y realizar compras de manera organizada.
+La plataforma estará diseñada para brindar una experiencia de compra cómoda, permitiendo a los clientes encontrar diferentes productos de belleza desde un mismo lugar.
+
+Problema que soluciona:
+
+Actualmente, muchas personas tienen dificultades para encontrar productos de belleza de manera rápida y organizada, especialmente cuando deben consultar diferentes tiendas o redes sociales para conocer los productos disponibles, sus precios y características.
+Wonder Beauty Shop pretende solucionar este problema centralizando la información de los productos en una plataforma web, facilitando su búsqueda, consulta y proceso de compra.
+
+
+
+
+
+
+Justificación:
+El desarrollo de Wonder Beauty Shop permitirá implementar una solución tecnológica para mejorar la experiencia de compra de productos de belleza. Una tienda virtual facilita el acceso a los productos y permite presentar información de manera clara y organizada.
+Además, el proyecto permitirá aplicar conocimientos relacionados con el desarrollo web, diseño de interfaces, bases de datos y programación, creando una plataforma que pueda ser utilizada tanto por clientes como por administradores.
+
+Objetivo general:
+Desarrollar una plataforma web para Wonder Beauty Shop que permita a los usuarios consultar y adquirir productos de belleza de manera sencilla, organizada y accesible. 
+
+Objetivos específicos:
+
+Diseñar una interfaz web atractiva, intuitiva y adaptable a diferentes dispositivos.
+Crear un catálogo organizado de productos de belleza con información como nombre, descripción, precio e imagen.
+Implementar funcionalidades que permitan a los usuarios consultar y seleccionar productos.
+Facilitar el proceso de compra mediante un carrito de compras.
+Permitir la gestión de productos por parte del administrador.
+Aplicar buenas prácticas de desarrollo web para garantizar una plataforma organizada y funcional.
+
+
+
+
+
+
+Alcance:
+
+El proyecto contempla el desarrollo de una plataforma web para la gestión y venta de productos de belleza.
+Entre las funcionalidades principales se encuentran:
+Registro e inicio de sesión de usuarios.
+Visualización del catálogo de productos.
+Búsqueda y consulta de productos.
+Visualización de información, precio e imágenes de los productos.
+Clasificación de productos por categorías.
+Carrito de compras.
+Gestión de productos por parte del administrador.
+Registro y consulta de pedidos.
+Diseño responsive para computadores, tablets y dispositivos móviles.
+
+Usuarios del sistema:
+Cliente:
+Es el usuario que utiliza la plataforma para:
+Registrarse e iniciar sesión.
+Consultar productos.
+Buscar productos por nombre o categoría.
+Agregar productos al carrito.
+Gestionar sus productos seleccionados.
+Realizar pedidos.
+Consultar información de sus compras.
+Administrador:
+Es el usuario encargado de gestionar la tienda y podrá:
+Agregar nuevos productos.
+Editar información de los productos.
+Eliminar productos.
+Administrar categorías.
+Consultar pedidos.
+Gestionar la información disponible en el catálogo.
+
+Tecnologías que posiblemente se utilizarán:
+Para el desarrollo de Wonder Beauty Shop se podrán utilizar las siguientes tecnologías:
+HTML5: para estructurar las páginas web.
+CSS3: para diseñar y personalizar la interfaz.
+JavaScript: para implementar interacciones y funcionalidades dinámicas.
+Bootstrap: para facilitar el diseño responsive y algunos componentes de la interfaz.
+MySQL: para almacenar información de usuarios, productos, categorías y pedidos.
+PHP: como posible lenguaje para desarrollar la lógica del servidor y conectar la plataforma con la base de datos.
+Git y GitHub: para el control de versiones y trabajo colaborativo.
+Visual Studio Code: como entorno de desarrollo.
+
+
+
+
+
