@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Wonder Beauty Shop</title>
+
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+
+
+<header class="top-bar">
+
+    <span class="brand-title">WonderBeauty</span>
+
+    <div class="search-box">
+        <span class="icon-search">🔍</span>
+
+        <input
+            type="text"
+            id="search-input"
+            placeholder="Buscar productos..."
+        >
+
+        <button
+            class="icon-clear"
+            id="clear-search"
+            type="button"
+        >
+            ✕
+        </button>
+    </div>
+
+    <div class="top-actions">
+
+        <button
+            class="icon-btn"
+            id="cart-btn"
+            title="Carrito"
+            type="button"
+        >
+            🛒
+            <span class="cart-count" id="cart-count">0</span>
+        </button>
+
+        <button
+            class="icon-btn"
+            title="Configuración"
+            type="button"
+        >
+            ⚙️
+        </button>
+
+    </div>
+
+</header>
+
+
+<section class="hero-welcome">
+
+    <h1 id="welcome-heading">
+        Bienvenido Usuario! ✨
+    </h1>
+
+    <p>
+        Descubre nuestros productos de belleza
+    </p>
+
+</section>
+
+
+<div class="catalog-nav">
+
+    <h2 class="section-label">
+        • Catálogo de Hoy
+    </h2>
+
+    <button
+        class="catalog-link"
+        id="catalog-toggle"
+        type="button"
+    >
+        Ver por catálogos
+
+        <span class="round-icon">
+            ☰
+        </span>
+
+    </button>
+
+</div>
+
+
+<div
+    class="filter-panel"
+    id="filter-panel"
+>
+
+    <div class="filter-group">
+
+        <label for="filter-category">
+            Categoría
+        </label>
+
+        <select id="filter-category">
+
+            <option value="todas">
+                Todas
+            </option>
+
+            <option value="labios">
+                Labios
+            </option>
+
+            <option value="rostro">
+                Rostro
+            </option>
+
+            <option value="perfumes">
+                Perfumes
+            </option>
+
+            <option value="polvos">
+                Polvos y brillos
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div class="filter-group">
+
+        <label for="filter-price">
+            Precio
+        </label>
+
+        <select id="filter-price">
+
+            <option value="todos">
+                Todos
+            </option>
+
+            <option value="0-20000">
+                Menos de $20.000
+            </option>
+
+            <option value="20000-50000">
+                $20.000 - $50.000
+            </option>
+
+            <option value="50000-999999">
+                Más de $50.000
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <button
+        class="btn"
+        id="filter-clear"
+        type="button"
+    >
+        Limpiar filtros
+    </button>
+
+</div>
+
+
+
+
+<section
+    class="product-grid"
+    id="product-grid"
+>
+</section>
+
+
+
+
+<h2 class="promo-title">
+    GRAN VARIEDAD
+</h2>
+
+
+<div class="promo-grid">
+
+    <div class="promo-card">
+
+        <img
+            src="https://placehold.co/640x520/1a1a1a/ffffff?text=%23WeSingle+%E2%80%94+25%25"
+            alt="Promoción WeSingle">
+
+    </div>
+
+
+    <div class="promo-card">
+
+        <img
+            src="https://placehold.co/640x520/f5c9e0/6b3d85?text=La+Riviera+20%25+Off"
+            alt="Promoción La Riviera"
+        >
+
+    </div>
+
+</div>
+
+
+
+<section class="newsletter-section">
+
+    <div class="newsletter-card">
+
+        <span class="envelope">
+            ✉️
+        </span>
+
+        <h3>
+            ¿Quieres tu OFF? te lo damos ahora
+        </h3>
+
+        <form
+            class="newsletter-form"
+            id="newsletter-form"
+        >
+
+            <input
+                type="email"
+                placeholder="Digite su correo electrónico"
+                required
+            >
+
+            <button type="submit">
+                ✕
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <div class="gallery-grid">
+
+        <img
+            src="https://placehold.co/320x260/e9d9f2/7a3fa0?text=Sombras"
+            alt="Sombras de ojos"
+        >
+
+        <img
+            src="https://placehold.co/320x260/f7dfe8/7a3fa0?text=Brochas"
+            alt="Brochas de maquillaje"
+        >
+
+        <img
+            src="https://placehold.co/320x260/f0e4d8/7a3fa0?text=Base+%2F+Rubor"
+            alt="Base y rubor"
+        >
+
+        <img
+            src="https://placehold.co/320x260/e6d6f5/7a3fa0?text=NOTE"
+            alt="Línea NOTE"
+        >
+
+    </div>
+
+</section>
+
+
+
+<section class="info-section">
+
+    <div>
+
+        <h2>
+            Comentarios
+        </h2>
+
+        <div class="comment-card">
+
+            <div class="user">
+                @AleeDIAZ
+            </div>
+
+            <p>
+                Me encantó este producto, muy suave y nutre los labios.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+        </div>
+
+
+        <div class="comment-card">
+
+            <div class="user">
+                @Sarairegui
+            </div>
+
+            <p>
+                Es muy confortable y combina con mi tono de piel,
+                muy buen producto y llegó en buen estado.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div>
+
+        <h2>
+            Información de Envío
+        </h2>
+
+        <div class="shipping-card">
+
+            <p>
+                <strong>Envío:</strong>
+                Disponible a todo el país
+            </p>
+
+            <p>
+                <strong>Tiempo estimado:</strong>
+                3 a 7 días hábiles
+            </p>
+
+            <p>
+                <strong>Preparación del pedido:</strong>
+                1 a 2 días hábiles
+            </p>
+
+            <p>
+                <strong>Costo de envío:</strong>
+                Gratis en compras superiores a $50.000
+            </p>
+
+            <p>
+                <strong>Seguimiento:</strong>
+                Recibe un número de guía para consultar el estado de tu pedido
+            </p>
+
+            <p>
+                <strong>Devoluciones:</strong>
+                Disponible según las condiciones de la tienda
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<footer>
+
+    <div class="footer-grid">
+
+        <div>
+
+            <h4>
+                LEGALES
+            </h4>
+
+            <ul>
+
+                <li>
+                    Políticas de privacidad
+                </li>
+
+                <li>
+                    Políticas de envíos
+                </li>
+
+                <li>
+                    Garantías y devoluciones
+                </li>
+
+                <li>
+                    Políticas de facturación
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Nosotros
+            </h4>
+
+            <ul>
+
+                <li>
+                    Nuestras Tiendas
+                </li>
+
+                <li>
+                    Test de tonos
+                </li>
+
+                <li>
+                    Tarjeta de regalo
+                </li>
+
+                <li>
+                    Servicio al cliente
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Tiendas y ubicaciones
+            </h4>
+
+            <ul>
+
+                <li>
+                    Medellín · El Tesoro · Arkadia · Mayorca · Viva Envigado · Santafé · Fabricato
+                </li>
+
+                <li>
+                    Bogotá · Unicentro · Mallplaza NQS · Titán Plaza · Aeropuerto El Dorado
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <p class="footer-bottom">
+        © 2026 · WonderBeautyShop Oficial
+    </p>
+
+</footer>
+
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
