@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wonder Beauty Shop - Restablecer contraseña</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="auth-header">
+    <span class="logo-title" style="font-size:2.6rem;">WonderBeauty</span>
+  </header>
+
+  <br> <br> <br> <br> <br> <br> 
+<div class="auth-wrapper">
+
+    <div class="auth-illustration">
+      <div class="flower-shape">
+        <img class="logo-img" src="logo-wonderbeauty.png" alt="Wonder Beauty Shop - Tienda online de maquillaje">
+      </div>
+    </div>
+
+  
+
+    <div class="auth-card">
+      <h2>Restablecer Contraseña</h2>
+
+      <form id="reset-form" novalidate>
+        <div class="field">
+          <label for="reset-email">Correo Electrónico</label>
+          <input type="email" id="reset-email" name="email" required>
+        </div>
+
+        <div class="field-inline">
+          <div class="field">
+            <label for="reset-code">Código de Seguridad</label>
+            <input type="text" id="reset-code" name="code" maxlength="6">
+          </div>
+          <button type="button" class="btn" id="send-code-btn">Enviar</button>
+        </div>
+
+        <p class="error-msg" id="reset-error"></p>
+
+        <div class="form-actions">
+          <a href="login.html" class="btn btn-block" style="max-width:200px;">Entrar</a>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
