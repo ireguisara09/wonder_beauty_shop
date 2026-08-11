@@ -1,0 +1,1184 @@
+const PRODUCTS = [
+
+    {
+        id: 1,
+        name: "Gloss color suave",
+        price: 20000,
+        category: "labios",
+        color: "e9c9b8",
+        text: "6b3d85",
+
+        description:
+            "Gloss hidratante con un acabado brillante y suave. Ideal para darle color y luminosidad a los labios.",
+
+        ingredients: [
+            "Aceite de jojoba",
+            "Vitamina E",
+            "Cera vegetal",
+            "Aceite de almendras"
+        ],
+
+        rating: 5,
+
+        comments: [
+            {
+                user: "@AleeDIAZ",
+                text: "Me encantó este producto, muy suave y nutre los labios",
+                stars: 5
+            },
+            {
+                user: "@Sarairegui",
+                text: "Es muy confortable y combina con mi tono de piel",
+                stars: 5
+            }
+        ]
+    },
+
+
+    {
+        id: 2,
+        name: "Base con brochas RMS",
+        price: 55000,
+        category: "rostro",
+        color: "f0e0c8",
+        text: "6b3d85",
+
+        description:
+            "Base de maquillaje acompañada de brochas para lograr un acabado uniforme y profesional.",
+
+        ingredients: [
+            "Agua purificada",
+            "Glicerina",
+            "Vitamina E",
+            "Pigmentos minerales"
+        ],
+
+        rating: 4,
+
+        comments: [
+            {
+                user: "@Valentina",
+                text: "La cobertura es muy bonita y las brochas son suaves.",
+                stars: 4
+            }
+        ]
+    },
+
+
+    {
+        id: 3,
+        name: "Corrector base clara",
+        price: 16000,
+        category: "rostro",
+        color: "e8c9c0",
+        text: "6b3d85",
+
+        description:
+            "Corrector de tono claro para cubrir pequeñas imperfecciones y unificar el tono del rostro.",
+
+        ingredients: [
+            "Glicerina",
+            "Vitamina E",
+            "Pigmentos minerales"
+        ],
+
+        rating: 5,
+
+        comments: [
+            {
+                user: "@Sofi",
+                text: "Cubre muy bien y no deja la piel pesada.",
+                stars: 5
+            }
+        ]
+    },
+
+
+    {
+        id: 4,
+        name: "Polvo de Hadas Magic",
+        price: 15000,
+        category: "polvos",
+        color: "f5d9ea",
+        text: "6b3d85",
+
+        description:
+            "Polvo ligero con acabado luminoso para darle un toque mágico y brillante al rostro.",
+
+        ingredients: [
+            "Mica",
+            "Pigmentos minerales",
+            "Talco cosmético"
+        ],
+
+        rating: 5,
+
+        comments: [
+            {
+                user: "@Laura",
+                text: "Me encanta el brillo que deja en la piel.",
+                stars: 5
+            }
+        ]
+    },
+
+
+    {
+        id: 5,
+        name: "Perfume DREAM",
+        price: 60000,
+        category: "perfumes",
+        color: "f0b8c9",
+        text: "6b3d85",
+
+        description:
+            "Fragancia femenina con un aroma delicado, dulce y elegante para cualquier ocasión.",
+
+        ingredients: [
+            "Alcohol cosmético",
+            "Agua",
+            "Esencias aromáticas"
+        ],
+
+        rating: 5,
+
+        comments: [
+            {
+                user: "@Michell",
+                text: "Tiene un aroma delicioso y dura bastante.",
+                stars: 5
+            }
+        ]
+    },
+
+
+    {
+        id: 6,
+        name: "Perfume YANBAL",
+        price: 40000,
+        category: "perfumes",
+        color: "c93b4e",
+        text: "ffffff",
+
+        description:
+            "Fragancia elegante y fresca con un aroma ideal para el uso diario.",
+
+        ingredients: [
+            "Alcohol cosmético",
+            "Agua",
+            "Esencias aromáticas"
+        ],
+
+        rating: 4,
+
+        comments: [
+            {
+                user: "@Sara",
+                text: "Es un perfume muy agradable.",
+                stars: 4
+            }
+        ]
+    },
+
+
+    {
+        id: 7,
+        name: "Rubor en polvo",
+        price: 18000,
+        category: "polvos",
+        color: "f2c9d1",
+        text: "6b3d85",
+
+        description:
+            "Rubor en polvo de textura suave que aporta un color natural y saludable al rostro.",
+
+        ingredients: [
+            "Mica",
+            "Pigmentos minerales",
+            "Silicona cosmética"
+        ],
+
+        rating: 5,
+
+        comments: [
+            {
+                user: "@Alejandra",
+                text: "El color queda muy natural y bonito.",
+                stars: 5
+            }
+        ]
+    },
+
+
+    {
+        id: 8,
+        name: "Delineador líquido",
+        price: 14000,
+        category: "labios",
+        color: "2e2e2e",
+        text: "ffffff",
+
+        description:
+            "Delineador líquido de aplicación precisa para crear diferentes estilos de maquillaje.",
+
+        ingredients: [
+            "Agua",
+            "Pigmentos",
+            "Glicerina",
+            "Polímeros cosméticos"
+        ],
+
+        rating: 4,
+
+        comments: [
+            {
+                user: "@Dani",
+                text: "Es fácil de aplicar y tiene buena duración.",
+                stars: 4
+            }
+        ]
+    }
+
+];
+
+
+
+let cartCount = 0;
+
+
+const filterState = {
+
+    search: "",
+
+    category: "todas",
+
+    priceRange: "todos"
+
+};
+
+
+
+
+function formatPrice(value){
+
+    return value.toLocaleString("es-CO");
+
+}
+
+
+
+function renderProducts(list){
+
+    const grid = document.getElementById("product-grid");
+
+    if (!grid) return;
+
+    grid.innerHTML = "";
+
+
+    if (list.length === 0){
+
+        grid.innerHTML = `
+            <p style="
+                grid-column:1/-1;
+                text-align:center;
+                color:#7a6a87;
+            ">
+                No se encontraron productos.
+            </p>
+        `;
+
+        return;
+
+    }
+
+
+    list.forEach(product => {
+
+        const card = document.createElement("div");
+
+        card.className = "product-card";
+
+        card.dataset.id = product.id;
+
+
+        card.innerHTML = `
+
+            <div class="thumb">
+
+                <img
+                    src="https://placehold.co/300x220/${product.color}/${product.text}?text=${encodeURIComponent(product.name)}"
+                    alt="${product.name}"
+                >
+
+            </div>
+
+
+            <div class="info">
+
+                <div class="name-price">
+
+                    <div class="name">
+                        ${product.name}
+                    </div>
+
+                    <div class="price">
+                        Precio: ${formatPrice(product.price)}
+                    </div>
+
+                </div>
+
+
+                <div class="buy-row">
+
+                    <button
+                        class="btn buy-btn"
+                        data-id="${product.id}"
+                        type="button">
+                        Comprar
+                    </button>
+
+
+                    <span
+                        class="mini-cart-icon"
+                        data-id="${product.id}"
+                    >
+                        🛒
+                    </span>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+    
+
+        card.addEventListener("click", function(event){
+
+            if (
+                event.target.classList.contains("buy-btn") ||
+                event.target.classList.contains("mini-cart-icon")
+            ){
+
+                return;
+
+            }
+
+
+            const productId =
+                Number(card.dataset.id);
+
+
+            openProductDetails(productId);
+
+        });
+
+
+        grid.appendChild(card);
+
+    });
+
+
+    
+
+    document
+        .querySelectorAll(".buy-btn")
+        .forEach(button => {
+
+          button.addEventListener("click", function(){
+
+    const productId = Number(this.dataset.id);
+
+    window.location.href =
+        `producto1.html?id=${productId}`;
+
+});
+
+        });
+
+
+
+
+    document
+        .querySelectorAll(".mini-cart-icon")
+        .forEach(icon => {
+
+            icon.addEventListener("click", function(){
+
+                const productId =
+                    Number(this.dataset.id);
+
+                addToCart(productId);
+
+            });
+
+        });
+
+}
+
+
+
+
+function addToCart(productId){
+
+    const product =
+        PRODUCTS.find(p => p.id === productId);
+
+
+    if (!product) return;
+
+
+    cartCount++;
+
+
+    updateCartCount();
+
+
+    showToast(
+        `${product.name} añadido al carrito 💜`
+    );
+
+}
+
+
+
+
+function updateCartCount(){
+
+    const counter =
+        document.getElementById("cart-count");
+
+
+    if (counter){
+
+        counter.textContent =
+            cartCount;
+
+    }
+
+}
+
+
+
+function openProductDetails(productId){
+
+    const product =
+        PRODUCTS.find(p => p.id === productId);
+
+
+    if (!product) return;
+
+
+    const modal =
+        document.getElementById("product-modal");
+
+
+    const image =
+        document.getElementById("detail-image");
+
+
+    const name =
+        document.getElementById("detail-name");
+
+
+    const price =
+        document.getElementById("detail-price");
+
+
+    const rating =
+        document.getElementById("detail-rating");
+
+
+    const description =
+        document.getElementById("detail-description");
+
+
+    const ingredients =
+        document.getElementById("detail-ingredients");
+
+
+    const comments =
+        document.getElementById("detail-comments");
+
+
+
+    image.src =
+        `https://placehold.co/500x400/${product.color}/${product.text}?text=${encodeURIComponent(product.name)}`;
+
+
+    image.alt =
+        product.name;
+
+
+   
+
+    name.textContent =
+        product.name;
+
+
+
+    price.textContent =
+        `Precio: $${formatPrice(product.price)}`;
+
+
+ 
+
+    description.textContent =
+        product.description;
+
+
+  
+
+    rating.textContent =
+        "★".repeat(product.rating) +
+        "☆".repeat(5 - product.rating);
+
+
+
+
+    ingredients.innerHTML = "";
+
+
+    product.ingredients.forEach(ingredient => {
+
+        const li =
+            document.createElement("li");
+
+
+        li.textContent =
+            ingredient;
+
+
+        ingredients.appendChild(li);
+
+    });
+
+
+
+
+    comments.innerHTML = "";
+
+
+    product.comments.forEach(comment => {
+
+        const commentDiv =
+            document.createElement("div");
+
+
+        commentDiv.className =
+            "detail-comment";
+
+
+        commentDiv.innerHTML = `
+
+            <strong>
+                ${comment.user}
+            </strong>
+
+            <p>
+                ${comment.text}
+            </p>
+
+            <span class="comment-stars">
+
+                ${"★".repeat(comment.stars)}
+                ${"☆".repeat(5 - comment.stars)}
+
+            </span>
+
+        `;
+
+
+        comments.appendChild(commentDiv);
+
+    });
+
+
+
+    const buyButton =
+        document.getElementById("detail-buy");
+
+
+    buyButton.dataset.id =
+        product.id;
+
+
+    modal.classList.add("show");
+
+}
+
+
+
+function setupProductModal(){
+
+    const modal =
+        document.getElementById("product-modal");
+
+
+    const closeButton =
+        document.getElementById("close-modal");
+
+
+    const buyButton =
+        document.getElementById("detail-buy");
+
+
+    if (!modal) return;
+
+
+
+    closeButton.addEventListener("click", function(){
+
+        modal.classList.remove("show");
+
+    });
+
+
+    modal.addEventListener("click", function(event){
+
+        if (event.target === modal){
+
+            modal.classList.remove("show");
+
+        }
+
+    });
+
+
+    /* Comprar desde detalles */
+
+    buyButton.addEventListener("click", function(){
+
+        const productId =
+            Number(this.dataset.id);
+
+
+        addToCart(productId);
+
+
+        modal.classList.remove("show");
+
+    });
+
+}
+
+
+
+
+let toastTimer = null;
+
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+
+    if (!toast) return;
+
+
+    toast.textContent =
+        message;
+
+
+    toast.classList.add("show");
+
+
+    clearTimeout(toastTimer);
+
+
+    toastTimer = setTimeout(() => {
+
+        toast.classList.remove("show");
+
+    }, 2200);
+
+}
+
+
+function applyFilters(){
+
+    let list =
+        PRODUCTS.filter(product =>
+            product.name
+                .toLowerCase()
+                .includes(filterState.search)
+        );
+
+
+    
+    if (
+        filterState.category !== "todas"
+    ){
+
+        list =
+            list.filter(
+                product =>
+                    product.category ===
+                    filterState.category
+            );
+
+    }
+
+
+  
+
+    if (
+        filterState.priceRange !== "todos"
+    ){
+
+        const [min, max] =
+            filterState.priceRange
+                .split("-")
+                .map(Number);
+
+
+        list =
+            list.filter(product =>
+                product.price >= min &&
+                product.price <= max
+            );
+
+    }
+
+
+    renderProducts(list);
+
+}
+
+
+
+
+function setupSearch(){
+
+    const input =
+        document.getElementById("search-input");
+
+
+    const clearBtn =
+        document.getElementById("clear-search");
+
+
+    if (!input) return;
+
+
+    input.addEventListener("input", function(){
+
+        filterState.search =
+            input.value
+                .trim()
+                .toLowerCase();
+
+
+        applyFilters();
+
+    });
+
+
+    clearBtn?.addEventListener(
+        "click",
+        function(){
+
+            input.value = "";
+
+            filterState.search = "";
+
+            applyFilters();
+
+        }
+    );
+
+}
+
+
+
+function setupCatalogToggle(){
+
+    const btn =
+        document.getElementById("catalog-toggle");
+
+
+    const panel =
+        document.getElementById("filter-panel");
+
+
+    btn?.addEventListener(
+        "click",
+        function(){
+
+            panel?.classList.toggle("open");
+
+        }
+    );
+
+}
+
+
+
+
+function setupFilterPanel(){
+
+    const categorySelect =
+        document.getElementById("filter-category");
+
+
+    const priceSelect =
+        document.getElementById("filter-price");
+
+
+    const clearBtn =
+        document.getElementById("filter-clear");
+
+
+    categorySelect?.addEventListener(
+        "change",
+        function(){
+
+            filterState.category =
+                categorySelect.value;
+
+
+            applyFilters();
+
+        }
+    );
+
+
+    priceSelect?.addEventListener(
+        "change",
+        function(){
+
+            filterState.priceRange =
+                priceSelect.value;
+
+
+            applyFilters();
+
+        }
+    );
+
+
+    clearBtn?.addEventListener(
+        "click",
+        function(){
+
+            filterState.category =
+                "todas";
+
+
+            filterState.priceRange =
+                "todos";
+
+
+            if (categorySelect){
+
+                categorySelect.value =
+                    "todas";
+
+            }
+
+
+            if (priceSelect){
+
+                priceSelect.value =
+                    "todos";
+
+            }
+
+
+            applyFilters();
+
+
+            showToast(
+                "Filtros limpiados"
+            );
+
+        }
+    );
+
+}
+
+
+function setupNewsletter(){
+
+    const form =
+        document.getElementById(
+            "newsletter-form"
+        );
+
+
+    form?.addEventListener(
+        "submit",
+        function(event){
+
+            event.preventDefault();
+
+
+            form.reset();
+
+
+            showToast(
+                "¡Gracias! Tu descuento fue enviado a tu correo 🎁"
+            );
+
+        }
+    );
+
+}
+
+
+
+function setupLoginForm(){
+
+    const form =
+        document.getElementById(
+            "login-form"
+        );
+
+
+    if (!form) return;
+
+
+    form.addEventListener(
+        "submit",
+        function(event){
+
+            event.preventDefault();
+
+
+            const email =
+                document
+                    .getElementById("email")
+                    .value
+                    .trim();
+
+
+            const password =
+                document
+                    .getElementById("password")
+                    .value
+                    .trim();
+
+
+            const error =
+                document.getElementById(
+                    "login-error"
+                );
+
+
+            if (!email || !password){
+
+                error.textContent =
+                    "Completa correo y contraseña para continuar.";
+
+                return;
+
+            }
+
+
+            if (!email.includes("@")){
+
+                error.textContent =
+                    "Ingresa un correo electrónico válido.";
+
+                return;
+
+            }
+
+
+            error.textContent = "";
+
+
+            showToast(
+                "¡Bienvenida a Wonder Beauty Shop!"
+            );
+
+
+            setTimeout(() => {
+
+                window.location.href =
+                    "index.html?user=" +
+                    encodeURIComponent(email);
+
+            }, 800);
+
+        }
+    );
+
+}
+
+
+
+
+function setupResetForm(){
+
+    const form =
+        document.getElementById(
+            "reset-form"
+        );
+
+
+    if (!form) return;
+
+
+    const sendBtn =
+        document.getElementById(
+            "send-code-btn"
+        );
+
+
+    const error =
+        document.getElementById(
+            "reset-error"
+        );
+
+
+    sendBtn?.addEventListener(
+        "click",
+        function(){
+
+            const email =
+                document
+                    .getElementById(
+                        "reset-email"
+                    )
+                    .value
+                    .trim();
+
+
+            if (!email.includes("@")){
+
+                error.textContent =
+                    "Ingresa un correo válido antes de enviar el código.";
+
+                return;
+
+            }
+
+
+            error.textContent = "";
+
+
+            showToast(
+                "Código de seguridad enviado a tu correo"
+            );
+
+        }
+    );
+
+
+    form.addEventListener(
+        "submit",
+        function(event){
+
+            event.preventDefault();
+
+
+            const code =
+                document
+                    .getElementById(
+                        "reset-code"
+                    )
+                    .value
+                    .trim();
+
+
+            if (!code){
+
+                error.textContent =
+                    "Ingresa el código de seguridad que recibiste.";
+
+                return;
+
+            }
+
+
+            error.textContent = "";
+
+
+            showToast(
+                "Contraseña restablecida correctamente"
+            );
+
+
+            setTimeout(() => {
+
+                window.location.href =
+                    "login.html";
+
+            }, 800);
+
+        }
+    );
+
+}
+
+
+
+
+function setupSession(){
+
+    const welcomeHeading =
+        document.getElementById(
+            "welcome-heading"
+        );
+
+
+    if (!welcomeHeading) return;
+
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const user =
+        params.get("user");
+
+
+    if (!user){
+
+        return;
+
+    }
+
+
+    const displayName =
+        user.split("@")[0];
+
+
+    welcomeHeading.textContent =
+        `Bienvenido ${displayName}! ✨`;
+
+}
+
+
+
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        setupSession();
+
+        renderProducts(PRODUCTS);
+
+        setupSearch();
+
+        setupCatalogToggle();
+
+        setupFilterPanel();
+
+        setupNewsletter();
+
+        setupLoginForm();
+
+        setupResetForm();
+
+        setupProductModal();
+
+    }
+);
